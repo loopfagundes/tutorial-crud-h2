@@ -43,11 +43,11 @@ http://localhost:8080/api/tutorials
 
 :rocket: [HTTP response status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
-|    HTTP    |  CRUD  | STATUS                  |
-|:----------:|:------:|:------------------------|
-|  GET ALL   |  READ  | 204 No Content / 200 OK | 
-|   GET ID   |  READ  | 200 OK                  |
-|    POST    | CREATE | 201 Created             |
-|    PUT     | UPDATE | 200 OK                  |
-| DELETE ID  | DELETE | 200 OK                  |
-| DELETE ALL | DELETE | 200 OK                  |
+|    HTTP    |  CRUD  | STATUS      |
+|:----------:|:------:|:------------|
+|  GET ALL   |  READ  | 200 OK      | 
+|   GET ID   |  READ  | 200 OK      |
+|    POST    | CREATE | 201 Created |
+|    PUT     | UPDATE | 200 OK      |
+| DELETE ID  | DELETE | 200 OK      |
+| DELETE ALL | DELETE | 200 OK      |

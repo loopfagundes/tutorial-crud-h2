@@ -3,6 +3,8 @@ package br.dev.codex.controller;
 import java.util.List;
 
 import br.dev.codex.services.ServiceResponseEntity;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,9 +23,17 @@ import br.dev.codex.model.Tutorial;
 @RequestMapping("/api/tutorials")
 public class TutorialController extends ServiceResponseEntity{
 
+    @Autowired
+    private ServiceResponseEntity serviceResponseEntity;
+
+//    @GetMapping
+//    public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String nome) {
+//        return getAllListResponseEntity(nome);
+//    }
+
     @GetMapping
-    public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String nome) {
-        return getAllListResponseEntity(nome);
+    public List<Tutorial> getAll() {
+        return serviceResponseEntity.findAll();
     }
 
     @GetMapping("/{id}")
@@ -32,8 +42,8 @@ public class TutorialController extends ServiceResponseEntity{
     }
 
     @PostMapping
-    public ResponseEntity<Tutorial> createTutorial(@RequestBody Tutorial tutorial) {
-        return postTutorialResponseEntity(tutorial);
+    public Tutorial create(@Valid @RequestBody Tutorial tutorial) {
+        return serviceResponseEntity.save(tutorial);
     }
 
     @PutMapping("/{id}")

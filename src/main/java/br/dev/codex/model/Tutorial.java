@@ -3,6 +3,7 @@ package br.dev.codex.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 import java.time.Period;
 
 @Entity
+@Data
 @Table(name = "tutorials")
 public class Tutorial {
 

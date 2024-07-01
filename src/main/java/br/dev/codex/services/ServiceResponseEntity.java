@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,21 +17,8 @@ public class ServiceResponseEntity {
     @Autowired
     private TutorialRepository tutorialRepository;
 
-    public org.springframework.http.ResponseEntity<List<Tutorial>> getAllListResponseEntity(String nome) {
-        try {
-            List<Tutorial> tutorials = new ArrayList<Tutorial>();
-            if (nome == null) {
-                tutorials.addAll(tutorialRepository.findAll());
-            } else {
-                tutorials.addAll(tutorialRepository.findByNomeContainingIgnoreCase(nome));
-            }
-            if (tutorials.isEmpty()) {
-                return new org.springframework.http.ResponseEntity<>(HttpStatus.NO_CONTENT);
-            }
-            return new org.springframework.http.ResponseEntity<>(tutorials, HttpStatus.OK);
-        } catch (Exception e) {
-            return new org.springframework.http.ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-        }
+    public List<Tutorial> findAll() {
+        return tutorialRepository.findAll();
     }
 
     public ResponseEntity<Tutorial> getIdTutorialResponseEntity(long id) {
@@ -42,15 +29,12 @@ public class ServiceResponseEntity {
                 -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    public ResponseEntity<Tutorial> postTutorialResponseEntity(Tutorial tutorial) {
-        try {
-            Tutorial _tutorial = tutorialRepository.save(new Tutorial(tutorial.getNome(), tutorial.getDataNascimento(), tutorial.getCpf()));
-            return new ResponseEntity<>(_tutorial, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-        }
+    @Transactional
+    public Tutorial save(Tutorial tutorial) {
+        return tutorialRepository.save(tutorial);
     }
 
+    @Transactional
     public ResponseEntity<Tutorial> putTutorialResponseEntity(long id, Tutorial tutorial) {
         Optional<Tutorial> tutorialData = tutorialRepository.findById(id);
         if (tutorialData.isPresent()) {
@@ -64,6 +48,7 @@ public class ServiceResponseEntity {
         }
     }
 
+    @Transactional
     public ResponseEntity<HttpStatus> deleteHttpStatusResponseEntity(long id) {
         try {
             tutorialRepository.deleteById(id);
@@ -73,6 +58,7 @@ public class ServiceResponseEntity {
         }
     }
 
+    @Transactional
     public ResponseEntity<HttpStatus> deleteAllHttpStatusResponseEntity() {
         try {
             tutorialRepository.deleteAll();
