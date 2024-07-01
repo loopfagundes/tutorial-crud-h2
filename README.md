@@ -36,12 +36,12 @@ http://localhost:8080/api/tutorials
 }  
 ```  
 
-### HTTP Methods and Status:
-| HTTP|STATUS|
-|--|--|
-|GET ALL|204 No Content / 200 OK|
-|GET ID| 200 OK|
-|POST|201 Created|
-|PUT|200 OK|
-|DELETE ID|200 OK|
-|DELETE ALL|200 OK|
+### HTTP Methods, CRUD and Status:
+|    HTTP    |  CRUD  | STATUS                  |
+|:----------:|:------:|:------------------------|
+|  GET ALL   |  READ  | 204 No Content / 200 OK | 
+|   GET ID   |  READ  | 200 OK                  |
+|    POST    | CREATE | 201 Created             |
+|    PUT     | UPDATE | 200 OK                  |
+| DELETE ID  | DELETE | 200 OK                  |
+| DELETE ALL | DELETE | 200 OK                  |
