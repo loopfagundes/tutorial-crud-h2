@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.dev.codex.model.Tutorial;
@@ -25,11 +24,6 @@ public class TutorialController extends ServiceResponseEntity{
 
     @Autowired
     private ServiceResponseEntity serviceResponseEntity;
-
-//    @GetMapping
-//    public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String nome) {
-//        return getAllListResponseEntity(nome);
-//    }
 
     @GetMapping
     public List<Tutorial> getAll() {
