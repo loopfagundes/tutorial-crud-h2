@@ -37,7 +37,7 @@ http://localhost:8080/api/tutorials
 ```  
 
 ### HTTP Methods, CRUD and Status:
-:rocket: [What are Http methods?](https://blog.postman.com/what-are-http-methods/)
+:rocket: [What are Http methods?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 
 :rocket: [What is CRUD?](https://www.codecademy.com/article/what-is-crud)
 
