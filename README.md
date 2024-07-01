@@ -37,6 +37,12 @@ http://localhost:8080/api/tutorials
 ```  
 
 ### HTTP Methods, CRUD and Status:
+:rocket: [What is CRUD?](https://www.codecademy.com/article/what-is-crud)
+
+:rocket: [What are Http methods?](https://blog.postman.com/what-are-http-methods/)
+
+:rocket: [HTTP response stats code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
 |    HTTP    |  CRUD  | STATUS                  |
 |:----------:|:------:|:------------------------|
 |  GET ALL   |  READ  | 204 No Content / 200 OK | 
