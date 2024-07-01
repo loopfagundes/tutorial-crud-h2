@@ -7,6 +7,17 @@ mvn spring-boot:run
 
 ## Postman  :rocket:
 
+- **URL:** 
+
+``` 
+http://localhost:8080/api/tutorials
+```
+- **PATCH:**
+```bash 
+/id for GET, PUT, or DELETE 
+```
+
+
 ### Headers:
 
 - **Key:** Content-Type
@@ -17,7 +28,7 @@ mvn spring-boot:run
 - **raw**
 - **JSON**
 
-```bash
+```
 {  
 "nome": "nome",  
 "dataNascimento": "dd/MM/yyyy",  
