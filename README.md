@@ -41,7 +41,7 @@ http://localhost:8080/api/tutorials
 
 :rocket: [What are Http methods?](https://blog.postman.com/what-are-http-methods/)
 
-:rocket: [HTTP response stats code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+:rocket: [HTTP response status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
 |    HTTP    |  CRUD  | STATUS                  |
 |:----------:|:------:|:------------------------|
