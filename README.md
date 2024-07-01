@@ -1,11 +1,11 @@
-### Spring Boot H2 Database CRUD - TUTORIAL
+## Spring Boot H2 Database CRUD - TUTORIAL
 
 ### Run Maven and Spring Boot application:
 ```bash  
 mvn spring-boot:run
 ```  
 
-## Postman  :rocket:
+### Postman  :rocket:
 
 - **URL:** 
 
