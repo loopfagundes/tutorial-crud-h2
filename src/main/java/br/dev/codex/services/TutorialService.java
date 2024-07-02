@@ -1,18 +1,20 @@
 package br.dev.codex.services;
 
-import br.dev.codex.repository.TutorialRepository;
+import br.dev.codex.repositories.DescriptionRepository;
+import br.dev.codex.repositories.TutorialRepository;
 import br.dev.codex.model.Tutorial;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ServiceResponseEntity {
+public class TutorialService {
 
     @Autowired
     private TutorialRepository tutorialRepository;
@@ -35,7 +37,7 @@ public class ServiceResponseEntity {
     }
 
     @Transactional
-    public ResponseEntity<Tutorial> putTutorialResponseEntity(long id, Tutorial tutorial) {
+    public ResponseEntity<Tutorial> putTutorialResponseEntity(@PathVariable Long id, Tutorial tutorial) {
         Optional<Tutorial> tutorialData = tutorialRepository.findById(id);
         if (tutorialData.isPresent()) {
             Tutorial _tutorial = tutorialData.get();

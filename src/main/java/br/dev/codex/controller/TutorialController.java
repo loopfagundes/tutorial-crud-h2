@@ -2,7 +2,7 @@ package br.dev.codex.controller;
 
 import java.util.List;
 
-import br.dev.codex.services.ServiceResponseEntity;
+import br.dev.codex.services.TutorialService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,38 +20,38 @@ import br.dev.codex.model.Tutorial;
 
 @RestController
 @RequestMapping("/api/tutorials")
-public class TutorialController extends ServiceResponseEntity{
+public class TutorialController {
 
     @Autowired
-    private ServiceResponseEntity serviceResponseEntity;
+    private TutorialService tutorialService;
 
     @GetMapping
     public List<Tutorial> getAll() {
-        return serviceResponseEntity.findAll();
+        return tutorialService.findAll();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Tutorial> getTutorialById(@PathVariable("id") long id) {
-        return getIdTutorialResponseEntity(id);
+        return tutorialService.getIdTutorialResponseEntity(id);
     }
 
     @PostMapping
     public Tutorial create(@Valid @RequestBody Tutorial tutorial) {
-        return serviceResponseEntity.save(tutorial);
+        return tutorialService.save(tutorial);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Tutorial> updateTutorial(@PathVariable("id") long id, @RequestBody Tutorial tutorial) {
-        return putTutorialResponseEntity(id, tutorial);
+        return tutorialService.putTutorialResponseEntity(id, tutorial);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") long id) {
-        return deleteHttpStatusResponseEntity(id);
+        return tutorialService.deleteHttpStatusResponseEntity(id);
     }
 
     @DeleteMapping
     public ResponseEntity<HttpStatus> deleteAllTutorials() {
-        return deleteAllHttpStatusResponseEntity();
+        return tutorialService.deleteAllHttpStatusResponseEntity();
     }
 }

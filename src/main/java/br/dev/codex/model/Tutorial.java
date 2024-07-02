@@ -9,7 +9,10 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.HashSet;
+import java.util.Set;
 
+@Getter
 @Entity
 @Data
 @Table(name = "tutorials")
@@ -19,23 +22,25 @@ public class Tutorial {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Getter
     @Setter
     @NotBlank
     @Column(name = "nome")
     private String nome;
 
-    @Getter
     @Setter
     @Column(name = "dataNascimento")
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
 
-    @Getter
     @Setter
     @NotBlank
     @Column(name = "cpf", unique = true)
     private String cpf;
+
+    @Setter
+    @ElementCollection
+    @OneToMany(mappedBy = "tutorial", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Description> description = new HashSet<>();
 
     public Tutorial() {
 
@@ -47,16 +52,7 @@ public class Tutorial {
         this.cpf = cpf;
     }
 
-    public long getId() {
-        return id;
-    }
-
     public int getIdade() {
         return Period.between(this.dataNascimento, LocalDate.now()).getYears();
-    }
-
-    @Override
-    public String toString() {
-        return "Tutorial [id=" + id + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", cpf=" + cpf + "]";
     }
 }

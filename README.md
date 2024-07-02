@@ -36,6 +36,20 @@ http://localhost:8080/api/tutorials
 }  
 ```  
 
+```
+{  
+"nome": "Teste 2",  
+"dataNascimento": "10/10/1990",  
+"cpf": "01",  
+    "description": [
+        {
+            "phrase": "GOL" 
+        }
+    ]
+}  
+```
+
+
 ### HTTP Methods, CRUD and Status:
 :rocket: [What are Http methods?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 
