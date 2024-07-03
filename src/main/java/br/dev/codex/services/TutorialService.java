@@ -1,6 +1,5 @@
 package br.dev.codex.services;
 
-import br.dev.codex.model.Description;
 import br.dev.codex.repositories.TutorialRepository;
 import br.dev.codex.model.Tutorial;
 import org.springframework.beans.factory.annotation.Autowired;
