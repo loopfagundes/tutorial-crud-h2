@@ -1,6 +1,6 @@
 package br.dev.codex.services;
 
-import br.dev.codex.repositories.DescriptionRepository;
+import br.dev.codex.model.Description;
 import br.dev.codex.repositories.TutorialRepository;
 import br.dev.codex.model.Tutorial;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +44,7 @@ public class TutorialService {
             _tutorial.setNome(tutorial.getNome());
             _tutorial.setDataNascimento(tutorial.getDataNascimento());
             _tutorial.setCpf(tutorial.getCpf());
+            _tutorial.getIdade();
             return new ResponseEntity<>(tutorialRepository.save(_tutorial), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
