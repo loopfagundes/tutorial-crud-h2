@@ -38,10 +38,6 @@ public class Tutorial {
     private String cpf;
 
     @Setter
-    private int idade;
-
-    @Setter
-    @ElementCollection
     @OneToMany(mappedBy = "tutorial", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Description> description = new HashSet<>();
 
@@ -49,11 +45,10 @@ public class Tutorial {
 
     }
 
-    public Tutorial(String nome, LocalDate dataNascimento, String cpf, int idade) {
+    public Tutorial(String nome, LocalDate dataNascimento, String cpf) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
-        this.idade = idade;
     }
 
     public int getIdade() {

@@ -43,7 +43,6 @@ public class TutorialService {
             _tutorial.setNome(tutorial.getNome());
             _tutorial.setDataNascimento(tutorial.getDataNascimento());
             _tutorial.setCpf(tutorial.getCpf());
-            _tutorial.getIdade();
             return new ResponseEntity<>(tutorialRepository.save(_tutorial), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

@@ -1,6 +1,5 @@
 package br.dev.codex.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
@@ -17,8 +16,7 @@ public class Description {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonBackReference
-    @ManyToOne(optional = true, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "tutorial_id")
     private Tutorial tutorial;
 
